@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate
+} from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
 
-function App() {
+import { Dashboard } from "./components/Dashboard";
+import { Login } from "./components/Login";
+
+
+export const App = () => {
+
+
+  const { isAuth } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+          <Routes>
+              <Route path='/' element={!isAuth? <Login /> : <Navigate replace to="/dashboard" />}></Route>
+              <Route path="/dashboard"
+                element={isAuth? <Dashboard /> : <Navigate replace to="/" />}
+              />
+          </Routes>
+      </BrowserRouter>
   );
 }
-
-export default App;
