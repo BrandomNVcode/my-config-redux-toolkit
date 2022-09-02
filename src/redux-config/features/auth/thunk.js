@@ -1,4 +1,4 @@
-import { startAuthUser, startLogin } from "./auth/authSlice"
+import { startAuthUser, startLogin } from "./authSlice"
 
 
 export const getUser = () => {

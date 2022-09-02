@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { getUser } from '../redux-config/features/thunk';
+import { getUser } from '../redux-config/features/auth/thunk';
 
 
 
