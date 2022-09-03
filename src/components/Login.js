@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { getUser } from '../redux-config/features/auth/thunk';
+import { startLogin } from '../redux-config/features/auth/authSlice';
 
 
 
@@ -16,7 +16,7 @@ export const Login = () => {
         <>
             <div>Login</div>
             <br />
-            <button onClick={() => { dispatch( getUser() ) }}>Login</button>
+            <button onClick={() => { dispatch( startLogin() ) }}>Login</button>
         </>
     )
 }
